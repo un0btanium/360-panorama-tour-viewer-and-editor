@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>360° Panorama Tour</title>
+	<meta name="description" content="360° Panorama Tour" />
+	<meta name="viewport"
+		content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+	<style>
+		@-ms-viewport {
+			width: device-width;
+		}
+	</style>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/loading-circle.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+
+	<script src="https://kit.fontawesome.com/0d61b6ceb4.js" crossorigin="anonymous"></script>
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body class="multiple-panoramas view-control-buttons">
+	
+	<div class="loading-circle main-loading-circle"></div>
+	
+	<div id="pano"></div>
+
+	<div id="minimap-container" class="minimap-container enabled">
+		<div id="minimap" class="minimap">
+			<!-- Automatically filled with content -->
+		</div>
+	</div>
+
+	<div id="panoramaList">
+		<ul class="panoramas">
+			<!-- Automatically filled with content -->
+		</ul>
+	</div>
+
+	<div id="detailSidebar">
+		<ul id="sidebarContainer">
+			<!-- Automatically filled with content -->
+		</ul>
+	</div>
+
+	<div id="titleBar">
+		<h1 class="panoramaName">
+			<!-- Automatically filled with content -->
+		</h1>
+	</div>
+
+	<div class="clickable" id="minimapToggle" title="Karte an/aus">
+		<img class="icon off" src="img/minimap.svg">
+		<img class="icon on" src="img/minimap.svg">
+	</div>
+	<div class="clickable" id="autorotateToggle" title="Autorotieren an/aus">
+		<img class="icon off" src="img/play.png">
+		<img class="icon on" src="img/pause.png">
+	</div>
+	<div class="clickable" id="fullscreenToggle" title="Vollbildmodus an/aus">
+		<img class="icon off" src="img/fullscreen.png">
+		<img class="icon on" src="img/windowed.png">
+	</div>
+	<div class="clickable" id="panoramaListToggle" title="Panoramaliste anzeigen/ausblenden">
+		<img class="icon off" src="img/expand.png">
+		<img class="icon on" src="img/collapse.png">
+	</div>
+
+
+	<div id="viewLeft" class="viewControlButton viewControlButton-1" title="nach links schauen">
+		<img class="icon" src="img/left.png">
+	</div>
+	<div id="viewDown" class="viewControlButton viewControlButton-2" title="nach unten schauen">
+		<img class="icon" src="img/down.png">
+	</div>
+	<div id="viewOut" class="viewControlButton viewControlButton-3" title="heraus zoomen">
+		<img class="icon" src="img/minus.png">
+	</div>
+	<div id="viewIn" class="viewControlButton viewControlButton-4" title="hinein zoomen">
+		<img class="icon" src="img/plus.png">
+	</div>
+	<div id="viewUp" class="viewControlButton viewControlButton-5" title="nach oben schauen">
+		<img class="icon" src="img/up.png">
+	</div>
+	<div id="viewRight" class="viewControlButton viewControlButton-6" title="nach rechts schauen">
+		<img class="icon" src="img/right.png">
+	</div>
+
+
+	<div id="loginMenu" class="loginMenu">
+		<div class="loginModalContent animateZoom">
+			<span class="loginClose" id="loginClose">&times;</span>
+		
+			<div class="loginContainer">
+				<label for="usernameinput"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="usernameinput" id="loginUsername" class="loginInput" required>
+			
+				<label for="passwordinput"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="passwordinput" id="loginPassword" class="loginInput" required>
+			
+				<button id="loginSubmit" class="loginButton loginSubmitButton">Login</button>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <script src="vendors.bundle.js"></script> -->
+	<script src="index.bundle.js"></script>
+
+</body>
+
+</html>

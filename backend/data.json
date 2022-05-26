@@ -1,0 +1,92 @@
+{
+    "panoramas": [
+        {
+            "_id": "628f727f1c779705649ef068",
+            "isStart": true,
+            "poiRadius": 10,
+            "hotspots": [
+                {
+                    "target": "628f9900e6417a0fb4f51c9b",
+                    "rotation": 0,
+                    "targetYaw": 0,
+                    "_id": "628f9938e6417a0fb4f51c9c",
+                    "preserveOrientationBetweenPanoramas": true,
+                    "pitch": 0.6464456896583216,
+                    "yaw": 76.50203765571395,
+                    "type": "portal"
+                },
+                {
+                    "title": "Hello",
+                    "text": "World",
+                    "_id": "628f998fe6417a0fb4f51c9e",
+                    "preserveOrientationBetweenPanoramas": true,
+                    "pitch": 8.213993960831662,
+                    "yaw": 1.4605336791387589,
+                    "type": "textInfo"
+                }
+            ],
+            "cubemapLevels": [
+                {
+                    "tileSize": 256,
+                    "size": 256
+                },
+                {
+                    "tileSize": 512,
+                    "size": 512
+                },
+                {
+                    "tileSize": 512,
+                    "size": 1024
+                }
+            ],
+            "yaw": 0,
+            "room": "",
+            "building": "",
+            "floor": 0,
+            "isIndoors": false,
+            "orientation": 0,
+            "lng": 8.681601444005198,
+            "lat": 50.586785532904194,
+            "name": "Example Panorama"
+        },
+        {
+            "_id": "628f9900e6417a0fb4f51c9b",
+            "poiRadius": 10,
+            "hotspots": [
+                {
+                    "target": "628f727f1c779705649ef068",
+                    "rotation": 0,
+                    "targetYaw": 0,
+                    "_id": "628f9985e6417a0fb4f51c9d",
+                    "preserveOrientationBetweenPanoramas": true,
+                    "pitch": 12.570762444637058,
+                    "yaw": -98.58436996775222,
+                    "type": "portal"
+                }
+            ],
+            "cubemapLevels": [
+                {
+                    "tileSize": 256,
+                    "size": 256
+                },
+                {
+                    "tileSize": 512,
+                    "size": 512
+                },
+                {
+                    "tileSize": 512,
+                    "size": 1024
+                }
+            ],
+            "yaw": 0,
+            "room": "",
+            "building": "",
+            "floor": 0,
+            "isIndoors": false,
+            "orientation": 0,
+            "lng": 8.682017303216902,
+            "lat": 50.58690139941751,
+            "name": "Example Panorama Green"
+        }
+    ]
+}

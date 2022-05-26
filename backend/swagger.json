@@ -1,0 +1,210 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "2.0.0",
+        "title": "360° Panorama Tour Viewer & Editor",
+        "description": "360° panorama tour web application"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "servers": [
+        {
+            "url": "localhost:3000",
+            "description": "Panorama API"
+        }
+    ],
+    "paths": {
+        "/panoramas/": {
+            "get": {
+                "tags": ["Panoramas"],
+                "summary": "Get data about all panoramas",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/Panoramas"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cubemaps/{panoramaID}/{level}/{face}/tile-{x}-{y}.jpg": {
+            "get": {
+                "tags": ["Panoramas"],
+                "summary": "Get image of a specific panorama, detail level, face/side and tile of the cubemap format",
+                "parameters": [
+                    {
+                        "name": "panoramaID",
+                        "description": "The id of the panorama.",
+                        "type": "string",
+                        "enum": [ "628f727f1c779705649ef068"],
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "level",
+                        "description": "The detail level. The higher the number the larger the resolution of a single cubemap face and thus it is being split into more tiles.",
+                        "type": "integer",
+                        "enum": [ 0, 1, 2 ],
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "face",
+                        "description": "The side/face of the cube.",
+                        "type": "string",
+                        "enum": [ "up", "down", "back", "front", "left", "right" ],
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "x",
+                        "description": "The x-coordinate of the tile in the face image. Starting at the top left.",
+                        "type": "string",
+                        "enum": [ 0, 1 ],
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "y",
+                        "description": "The y-coordinate of the tile in the face image. Starting at the top left.",
+                        "type": "string",
+                        "enum": [ 0, 1 ],
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": "image/jpg"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Panorama": {
+			"description": "Information about the panorama and its location as well as settings for the Marzipano library",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "name": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lng": {
+                    "type": "number"
+                },
+                "orientation": {
+                    "type": "number"
+                },
+                "building": {
+                    "type": "string"
+                },
+                "floor": {
+                    "type": "integer"
+                },
+                "room": {
+                    "type": "string"
+                },
+                "yaw": {
+                    "type": "number"
+                },
+                "poiRadius": {
+                    "type": "number"
+                },
+                "isStart": {
+                    "type": "boolean"
+                },
+                "cubemapLevels": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CubemapLevel"
+					} 
+                },
+                "hotspots": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Hotspot"
+					} 
+                },
+                "__v": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Hotspot": {
+			"description": "Hotspot information can be of different types and there not all hotspots have the same information",
+			"properties": {
+                "_id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "type": {
+                    "type": "string"
+                },
+                "yaw": {
+                    "type": "number"
+                },
+                "pitch": {
+                    "type": "number"
+                },
+                "traget": {
+                    "type": "string"
+                },
+                "rotation": {
+                    "type": "number"
+                },
+                "preserveOrientationBetweenPanoramas": {
+                    "type": "boolean"
+                },
+                "targetYaw": {
+                    "type": "number"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "CubemapLevel": {
+			"description": "Information about the cubemap face and tile size",
+			"properties": {
+                "tileSize": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Panoramas": {
+            "description": "List of panoramas",
+			"properties": {
+                "panoramas": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Panorama"
+					} 
+                }
+            }
+        }
+    }
+}

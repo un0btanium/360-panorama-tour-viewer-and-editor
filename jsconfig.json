@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+	  "baseUrl": ".",
+	  "paths": {
+		"frontend/*": ["./frontend/*"],
+		"editor/*": ["./frontend/editor/*"],
+		"node_modules/*": ["./node_modules/*"],
+		"marzipano": ["./node_modules/marzipano/dist/marzipano.js"]
+	  }
+	}
+  }
